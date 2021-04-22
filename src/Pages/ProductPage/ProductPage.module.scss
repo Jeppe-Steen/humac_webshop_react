@@ -1,0 +1,87 @@
+$laptop: 1200px;
+
+.mainContainer {
+    position: relative;
+    top: 10vh; //same as navigation height
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .productContent {
+        height: fit-content;
+        width: 80%;
+        display: flex;
+        flex-direction: column-reverse;
+        padding: 20px 0;
+
+        @media (min-width: $laptop) {
+            height: 80vh;
+            flex-direction: row;
+            padding: 50px 0;
+        }
+
+        .productPictures {
+            height: fit-content;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            overflow: hidden;
+            padding: 20px 0;
+
+            @media (min-width: $laptop) {
+                height: 100%;
+                width: 40%;
+                padding: 50px;
+            }
+
+            .mainPicture {
+                width: 100%;
+                border: 1px solid #00000010;
+                box-shadow: 3px 3px 6px #00000030;
+            }
+            
+            div {
+                width: 100%;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-evenly;
+                overflow: hidden;
+                padding: 10px;
+
+                @media (min-width: $laptop) {
+                    height: 20%;
+                    flex-direction: row;
+                    padding: unset;
+                }
+
+                .secondaryPicture {
+                    border: 1px solid #00000010;
+                    box-shadow: 3px 3px 6px #00000030;
+                    margin: 15px;
+
+                    @media (min-width: $laptop) {
+                        margin: unset;
+                    }
+                }
+            }
+        }
+
+        .productDetails {
+            height: 550px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            @media (min-width: $laptop) {
+                height: 100%;
+                width: 60%;
+                padding: 50px;
+            }
+        }
+    }
+}

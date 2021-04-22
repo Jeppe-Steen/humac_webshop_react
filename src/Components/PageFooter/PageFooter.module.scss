@@ -1,0 +1,28 @@
+$laptop: 1200px;
+
+.pageFooter {
+    height: fit-content;
+    width: 100%;
+    background-color: rgb(14, 10, 27);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 20px 0;
+
+    @media (min-width: $laptop) {
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: space-evenly;
+    }
+
+    article {
+        margin: 20px;
+
+        .links {
+            color: white;
+            text-decoration: none;
+        }
+    }
+}

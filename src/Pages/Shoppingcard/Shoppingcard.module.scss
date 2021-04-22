@@ -1,0 +1,71 @@
+$laptop: 1200px;
+
+.mainContainer {
+    width: 100%;
+    height: fit-content;
+    position: relative;
+    top: 10vh; // same as the navigation height
+    padding: 20px 0;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    .containerHeader {
+        text-align: center;
+    }
+
+    .shoppingcard {
+        width: 80%;
+        min-height: 70vh;
+        padding: 20px 0;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+
+        .addedProduct {
+            box-shadow: 3px 3px 6px #00000030;
+            border: 1px solid #00000010;
+            width: 100%;
+            height: fit-content;
+            padding: 10px;
+            margin: 10px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+
+            @media (min-width: $laptop) {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                padding: 10px 20px;
+            }
+
+            img {
+                width: 60%;
+
+                @media (min-width: $laptop) {
+                    width: 20%;
+                }
+            }
+
+            h2 {
+                margin: 10px 0;
+                font-size: 1em;
+
+
+            }
+
+            .removeButton {
+                padding: 10px;
+                border: 1px solid black;
+                color: black;
+                margin-top: 10px;
+
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}

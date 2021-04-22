@@ -1,0 +1,139 @@
+$laptop: 1200px;
+
+.mainContainer {
+    position: relative;
+    top: 10vh;
+
+    @media (min-width: $laptop) {
+        position: unset;
+    }
+}
+
+.pageHero {
+    width: 100%;
+    height: 80vh;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    position: relative;
+    text-align: start;
+    overflow: hidden;
+
+    @media (min-width: $laptop) {
+        height: 85vh;
+        flex-direction: row;
+    }
+
+    .pageHeroArticle {
+        position: absolute;
+        top: 20px;
+        width: 80%;
+
+        @media (min-width: $laptop) {
+            left: 150px;
+            height: fit-content;
+            width: 30vw;
+            top: unset;
+        }
+        
+        header {
+            font-size: 1.5em;
+        }
+
+        p {
+            margin: 10px 0;
+        }
+    }
+
+    img {
+        position: absolute;
+        bottom: -200px;
+        width: 120%; 
+
+        @media (min-width: $laptop) {
+            right: 150px;
+            bottom: unset;
+            height: 80%;
+            width: unset;
+        }
+    }
+}
+
+.newsletter {
+    width: 100%;
+    height: 30vh;
+    background-color: rgb(14, 10, 27);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.newestProducts {
+    width: 100%;
+    background-color: white;
+    height: 150vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px;
+
+    @media (min-width: $laptop) {
+        height: 70vh;
+    }
+ 
+
+    header {
+        color: black;
+        font-size: 1.5em;
+        margin-bottom: 50px;
+        height: 20%;
+        text-align: center;
+    }
+
+    .newestWrapper {
+        width: fit-content;
+        height: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+        flex-direction: column;
+
+        @media (min-width: $laptop) {
+            width: 100%;
+            height: fit-content;
+            flex-direction: row;
+        }
+
+        .product {
+            flex: 0 0 30%;
+            box-shadow: 3px 3px 6px #00000030;
+            border: 1px solid #00000010;
+            text-align: center;
+            overflow: hidden;
+            padding: 0 20px 10px 20px;
+            color: black;
+            text-decoration: none;
+
+            img {
+                width: 80%;
+            }
+
+            p {
+                margin: 10px 0;
+            }
+
+            &:hover {
+                transform: scale(1.02);
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+.pageFooter {
+    height: 50vh;
+    width: 100%;
+    background-color: rgb(14, 10, 27);
+}

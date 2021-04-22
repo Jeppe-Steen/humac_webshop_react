@@ -1,0 +1,69 @@
+$laptop: 1200px;
+
+.mainContainer {
+    position: relative;
+    top: 10vh; //same as navigation
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .containerHeader {
+        padding: 10px;
+        text-align: center;
+
+        .filterOption {
+            min-width: 150px;
+            padding: 2px;
+            margin: 15px 0;
+        }
+    }
+
+    .productsContainer {
+        width: 70%;
+        min-height: 50vh;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        flex-direction: column;
+        gap: 10px;
+        padding: 0 0 50px 0;
+
+        @media (min-width: $laptop) {
+            width: 80%;
+            flex-direction: row;
+        }
+
+        .product {
+            flex: 0 0 30%;
+            box-shadow: 3px 3px 6px #00000030;
+            border: 1px solid #00000010;
+            text-align: center;
+            overflow: hidden;
+            padding: 0 20px 10px 20px;
+            color: black;
+            text-decoration: none;
+            height: fit-content;
+
+            img {
+                width: 80%;
+            }
+
+            p {
+                margin: 10px 0;
+            }
+
+            &:hover {
+                transform: scale(1.02);
+                cursor: pointer;
+            }
+        }
+    }
+
+    .pageFooter {
+        height: 50vh;
+        width: 100%;
+        background-color: rgb(14, 10, 27);
+    }
+}

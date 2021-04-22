@@ -1,0 +1,58 @@
+.pageNavigation {
+    height: 10vh;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: transparent;
+    z-index: 9000;
+
+    &.active {
+        background-color: white;
+        box-shadow: 0 3px 3px rgba(0, 0, 0, 0.3);
+    }
+}
+
+.pageLogo {
+    position: absolute;
+    left: 40px;
+    height: 60%;
+
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.pageMenu {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    height: fit-content;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+
+    li {
+        padding: 0 10px;
+        
+        .link {
+            text-decoration: none;
+            color: black;
+        }
+
+    }
+}
+
+.iconContainer {
+    position: absolute;
+    right: 40px;
+    display: flex;
+    flex-direction: row;
+
+    p {
+        padding: 0 10px;
+    }
+}
