@@ -8,23 +8,8 @@ import Style from './Products.module.scss';
 const Products = () => {
     const { categoryId } = useParams();
 
-    let [products, setProducts] = useState([]);
-    let [sortedProducts, setSortedProducts] = useState([]);
-    let [filter, setFilter] = useState("");
-
-    /*const sortByCheapest = () => {
-        const sorted = sortedProducts.sort((a, b) => {
-            return a.price - b.price;
-        });
-        setSortedProducts(sorted);
-    };
-
-    const sortByMostExpensive = () => {
-        const sorted = sortedProducts.sort((a, b) => {
-            return b.price - a.price;
-        });
-        setSortedProducts(sorted);
-    };*/
+    const [products, setProducts] = useState([]);
+    const [filter, setFilter] = useState();
 
     const doFetch = async () => {
         let url = `https://graphql.contentful.com/content/v1/spaces/mlkcd9qxygui/`;
@@ -47,37 +32,47 @@ const Products = () => {
 
     useEffect(() => {
         doFetch();
+        document.querySelector("#mySelect").selectedIndex = 0;
     }, [categoryId]);
+
+    useEffect(() => {
+        if(filter === "cheap first") {
+            const sorted = products.sort((a, b) => {
+                return a.price - b.price;
+            });
+            setProducts([...sorted]);
+        } else if (filter === "expensive first") {
+            const sorted = products.sort((a, b) => {
+                return b.price - a.price;
+            });
+            setProducts([...sorted]);
+        }
+    }, [filter]);
 
     return (
         <main className={Style.mainContainer}>
 
             <header className={Style.containerHeader}>
                 <h1>- {categoryId} -</h1>
-                <select className={Style.filterOption} onChange={(e) => {setFilter(e.target.value)}}>
-                    <option value="" selected disabled>Sorter efter pris</option>
-                    <option value="descending">Dyreste</option>
-                    <option value="ascending">Billigste</option>
+                <select id="mySelect" className={Style.filterOption} onChange={(e) => {setFilter(e.target.value)}}>
+                    <option value="normal sort" selected disabled>Sorter efter pris</option>
+                    <option value="expensive first">Dyreste</option>
+                    <option value="cheap first">Billigste</option>
                 </select>
             </header>
 
             <section className={Style.productsContainer}>
-
-                
-
-
-
                 {products ? products.map((item, index) => {
                 return (
                     <Link className={Style.product} key={index} to={`${categoryId}/${item.skuNumber}`}>
-                        <article key={index}>
+                        <article>
                             <img src={item.imageUrls[0]} alt="" />
                             <h3>{item.title}</h3>
                             <p>{item.price} DKK</p>
                         </article>
                     </Link>
                 )
-                }): null}
+                }) : null}
             </section>
             
             <PageFooter />
