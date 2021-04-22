@@ -18,7 +18,6 @@ const Navigation = (props) => {
                 <li><Link className={Style.link} to="/Produkter/Accessories">Tilbehør</Link></li>
             </ul>
             <span className={Style.iconContainer}>
-                <p>search</p>
                 <Link className={Style.link} to="/Indkøbskurv"><p>Kurv {shoppingcard.length}</p></Link>
             </span>
         </nav>
